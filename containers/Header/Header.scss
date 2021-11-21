@@ -1,0 +1,95 @@
+.header {
+  position: relative;
+
+  /* navbar */
+  .navbar {
+    position: fixed;
+  }
+  .navbar.scroll {
+    position: fixed;
+    background: rgba($color: #000000, $alpha: 0.8);
+    z-index: 99;
+    animation: fadeDown 0.4s ease;
+    transform-origin: 50% 0;
+    &::before,
+    &::after {
+      content: "";
+      display: none;
+    }
+  }
+
+
+  /* welcome */
+  .welcome {
+    padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    .welcome-title {
+      padding: 20px;
+      border-radius: 5px;
+      font-size: 7rem;
+      color: $text-white;
+      font-weight: 600;
+      text-align: center;
+    }
+    .sub-title {
+      font-size: 2rem;
+      color: $text-primary-light-color;
+      text-align: center;
+    }
+    img {
+      margin-top: 20px;
+    }
+  }
+
+  img#hangtag2 {
+    object-fit: cover;
+    object-position: bottom;
+    position: absolute;
+    width: 20px;
+    height: 150px;
+    left: calc(50% + 10%);
+    top: -180px;
+    animation: hangTagFallDown .9s linear;
+    animation-fill-mode: forwards;
+  }
+  img#hangtag1 {
+    object-fit: cover;
+    object-position: bottom;
+    position: absolute;
+    width: 20px;
+    height: 200px;
+    left: calc(50% - 11%);
+    top: -180px;
+    animation: hangTagFallDown .9s linear;
+    animation-fill-mode: forwards;
+  }
+  #menu-icon{
+    color:$text-primary-light-color;
+    font-size: 2rem;
+  }
+}
+
+@keyframes hangTagFallDown {
+  from {
+    top: -180px;
+  }
+  to {
+    top: 0px
+  }
+}
+
+
+
+@keyframes fadeDown {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(100%);
+    opacity: 1;
+  }
+}

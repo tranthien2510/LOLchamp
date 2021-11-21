@@ -1,0 +1,45 @@
+.nav-sidebar {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  .sidebar-left {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 300px;
+    top: 0;
+    bottom: 0;
+    left: -300px;
+    transition: all 0.4s ease;
+    z-index: 1;
+    .list {
+      .list-item {
+      }
+    }
+  }
+  .sidebar-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.7);
+    opacity: 0;
+    position: absolute;
+    transition: all 0.4s ease;
+  }
+
+  &.active {
+    visibility: visible;
+  }
+
+  &.active .sidebar-left {
+    left: 0;
+  }
+
+  &.active .sidebar-overlay {
+    opacity: 1;
+  }
+}
