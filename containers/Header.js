@@ -1,10 +1,10 @@
 import React from "react";
-import NavbarList from "../../components/NavbarList/NavbarList";
-import Button from "../../components/Button/Button";
+import NavbarList from "../components/NavbarList";
+import Button from "../components/Button";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Logo from "../../public/assets/images/logo.png";
-import NavSideBar from "./../../components/NavSIdeBar/NavSideBar";
+import Logo from "../public/assets/images/logo.png";
+import NavSideBar from "../components/NavSIdeBar";
 import MenuIcon from "@material-ui/icons/Menu";
 
 AOS.init();
@@ -83,7 +83,10 @@ export default function Header() {
         alt=""
         id="hangtag2"
       />
-      <NavSideBar isOpen={toggleNavSideBar} handleToggleSideBar={handleToggleSideBar}/>
+      <NavSideBar
+        isOpen={toggleNavSideBar}
+        handleToggleSideBar={handleToggleSideBar}
+      />
     </div>
   );
 }

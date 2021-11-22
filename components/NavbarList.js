@@ -1,6 +1,6 @@
 import React from "react";
-import { NAVBAR_LIST } from "../../constants";
-import Logo from "../../public/assets/images/logo.png";
+import { NAVBAR_LIST } from "../constants";
+import Logo from "../public/assets/images/logo.png";
 
 export default function NavbarList() {
 

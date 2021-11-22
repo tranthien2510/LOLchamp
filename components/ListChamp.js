@@ -1,6 +1,6 @@
 import React from "react";
 
-import ListChampItem from "../ListChampItem/ListChampItem";
+import ListChampItem from "./ListChampItem";
 
 function ListChamp() {
   const champs = [2,5,6,7,5];

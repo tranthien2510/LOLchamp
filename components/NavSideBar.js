@@ -1,5 +1,5 @@
 import React from "react";
-import { NAVBAR_LIST } from "../../constants";
+import { NAVBAR_LIST } from "../constants";
 
 function NavSideBar({ isOpen, handleToggleSideBar }) {
   const renderListSideBar = () => {

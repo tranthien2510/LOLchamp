@@ -1,8 +1,8 @@
 import React from "react";
 
-import Overlay from "./../../components/Overlay/Overlay";
-import Header from "./../Header/Header";
-import Section from "../Section/Section";
+import Overlay from "../components/Overlay";
+import Header from "./Header";
+import Section from "./Section";
 
 function App() {
   return (

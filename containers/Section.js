@@ -1,7 +1,7 @@
 import React from "react";
 
-import ListChamp from "./../../components/ListChamp/ListChamp";
-import SearchBar from "./../../components/SearchBar/SearchBar";
+import ListChamp from "../components/ListChamp";
+import SearchBar from "../components/SearchBar";
 
 function Section() {
   return (
