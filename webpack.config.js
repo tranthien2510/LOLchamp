@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const config = {
-  entry: "./src/index.js", // Dẫn tới file index.js ta đã tạo
+  entry: ["regenerator-runtime/runtime.js", "./src/index.js"], // Dẫn tới file index.js ta đã tạo
   output: {
     path: path.join(__dirname, "/dist"), // Thư mục chứa file được build ra
     filename: "bundle.js", // Tên file được build ra

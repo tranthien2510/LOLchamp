@@ -9,10 +9,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 AOS.init();
 
-export default function Header() {
+export default function Header({handleScrollToSection}) {
   const [scrollBehavior, setScrollBehavior] = React.useState(false);
   const [toggleNavSideBar, setToggleNavSidedBar] = React.useState(false);
-
   const navbar = React.useRef(null);
 
   const handleToggleSideBar = () => {
@@ -66,7 +65,7 @@ export default function Header() {
           With more than 140 champions, you’ll find the perfect match for your
           playstyle. Master one, or master them all.
         </h4>
-        <Button>go</Button>
+        <Button handleClick={handleScrollToSection}>go</Button>
         <img
           src="https://lolstatic-a.akamaihd.net/frontpage/apps/prod/signup/en_US/8473ee987f412783afafc8abe37ed37e31b0af83/assets/en_US/assets/divider.png"
           style={{ width: "100%" }}
