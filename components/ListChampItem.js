@@ -7,6 +7,9 @@ import Mage from "../public/assets/icons/Mage_icon.png";
 import Support from "../public/assets/icons/Support_icon.png";
 import Marksman from "../public/assets/icons/Marksman_icon.png";
 import Tank from "../public/assets/icons/Tank_icon.png";
+import AOS from "aos";
+
+AOS.init();
 
 function ListChampItem({ champion }) {
   
@@ -36,7 +39,7 @@ function ListChampItem({ champion }) {
   };
 
   return (
-    <div className="col c-3 m-4 sm-6 ss-12">
+    <div className="col c-3 m-4 sm-6 ss-12 " data-aos="zoom-in" data-aos-duration="400">
       <div className="list-item-champion">
         <img src={champion.avatar} alt="" className="avatar" />
         <div className="image-champion-overlay"></div>
@@ -47,7 +50,7 @@ function ListChampItem({ champion }) {
           <span className="name-champion">{champion.name}</span>
           <span className="classify">
             {champion.tags.map((tag) => (
-              <img src={tagIcon(tag)} className="tag-icon" />
+              <span className="tag-icon" tagTitle={tag}><img src={tagIcon(tag)}/></span>
             ))}
           </span>
         </div>

@@ -1,31 +1,58 @@
 import React, { useEffect, useReducer } from "react";
-import AxiosService from "../common/AxiosService";
 import { URL_GET_ALL_CHAMP } from "../constants";
 import ListChampItem from "./ListChampItem";
 import * as actions from "../actions";
-import { initState, reducer } from './../reducers/index';
-import 'regenerator-runtime/runtime'
+import "regenerator-runtime/runtime";
+import LoadingScreen from "./LoadingScreen";
+import { useChampionContext } from "../common/ChampionContext";
+import { getChampRequest } from "../apis/champApis";
+import { hideLoading } from './../actions/index';
 
 function ListChamp() {
-  const [state, dispatch] = useReducer(reducer, initState);
+  const { state, dispatch } = useChampionContext();
+
+  const delay = (time = 1500) => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(true);
+      }, time);
+    });
+  };
+
+  const fetchChampions = async () => {
+    try {
+      const res = await getChampRequest();
+      if (res) {
+        dispatch(actions.showLoading());
+        dispatch(actions.fetchAllChampSuccess(res.data));
+        dispatch(actions.hideLoading());
+      }
+    } catch (error) {
+      dispatch(action.showLoading());
+      dispatch(actions.fetchAllChampFailed());
+      dispatch(actions.hideLoading());
+    }
+  };
 
   useEffect(() => {
-    const getAllChampRequest = async () => {
-      try {
-        const response = await AxiosService.get(URL_GET_ALL_CHAMP);
-        dispatch(actions.getAllChampSuccess(response.data));
-      } catch (error) {
-        dispatch(actions.getAllChampFailed);
-      }
-    };
-    getAllChampRequest();
+    fetchChampions();
   }, []);
-  
+
   const renderListChampionItem = () => {
-    let xhtml = [];
-    xhtml = state.listChamp.map((champ) => {
-      return <ListChampItem champion={champ}/>;
-    });
+    let xhtml = null;
+
+    if (state.showLoading) {
+      return <LoadingScreen myFlag={true}/>;
+    }
+    if (!state.listChamp.length){
+      return <LoadingScreen myFlag={false}/>
+    }
+    if (state.listChamp.length) {
+      xhtml = state.listChamp.map((champ) => {
+        return <ListChampItem champion={champ} />;
+      });
+    }
+
     return xhtml;
   };
 

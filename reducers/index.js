@@ -1,10 +1,11 @@
 import * as actionTypes from "../constants";
 
-export const initState = { listChamp: [] };
+export const initState = { listChamp: [], showLoading: true };
 
 export const reducer = (state = initState, action) => {
   switch (action.type) {
-    case actionTypes.GET_ALL_CHAMP_SUCCESS:
+    /* *** */
+    case actionTypes.FETCH_ALL_CHAMP_SUCCESS: {
       const { data } = action.payLoad;
       const listChamp = [];
       for (let champ in data.data) {
@@ -18,11 +19,45 @@ export const reducer = (state = initState, action) => {
         });
       }
       return { ...state, listChamp };
-    case actionTypes.GET_ALL_CHAMP_FAILED:
-      return state;
+    }
+
+    /* *** */
+    case actionTypes.FETCH_ALL_CHAMP_FAILED:
+      return { ...state, listChamp: [] };
+
+    /* *** */
+    case actionTypes.FIND_CHAMP: {
+      const { data } = action.payLoad;
+      const { pattern } = action.payLoad;
+      let listChamp = [];
+      for (let champ in data.data) {
+        const { name, tags, image } = data.data[champ];
+        listChamp.push({
+          name: name,
+          tags: tags,
+          avatar: `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${modifyFileSuffix(
+            image.full
+          )}_0.jpg`,
+        });
+      }
+      listChamp = listChamp.filter((champion) =>
+        champion.name.toLowerCase().includes(pattern)
+      );
+      return { ...state, listChamp };
+    }
+
+    case actionTypes.SHOW_LOADING:{
+      return {...state, showLoading: true}
+    }
+
+    case actionTypes.HIDE_LOADING:{
+      return {...state, showLoading: false}
+    }
     default:
-      break;
+      return state;
   }
+
+
 };
 
 const modifyFileSuffix = (img) => {
