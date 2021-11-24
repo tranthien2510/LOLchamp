@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import * as actions from "../actions";
-import { useChampionContext } from "./../common/ChampionContext";
+import { useListChampContext } from "../common/Context";
 import Button from "./Button";
-import { getChampRequest } from "../apis/champApis";
 import "regenerator-runtime/runtime";
+import { getAllChampRequest } from './../apis/champApis';
 
 function SearchBar() {
-  const { state, dispatch } = useChampionContext();
+  const { stateListChamp , dispatchListChamp } = useListChampContext();
 
   const inputRef = useRef();
 
@@ -21,34 +21,34 @@ function SearchBar() {
   const findChampion = async () => {
     const name = inputRef.current.value.toLowerCase().trim();
     try {
-      const res = await getChampRequest();
+      const res = await getAllChampRequest();
       if (res) {
-        dispatch(actions.showLoading());
+        dispatchListChamp(actions.showLoading());
         await delay(500);
-        dispatch(actions.findChamp(name, res.data));
-        dispatch(actions.hideLoading());
+        dispatchListChamp(actions.findChamp(name, res.data));
+        dispatchListChamp(actions.hideLoading());
       }
     } catch (error) {
-      dispatch(actions.showLoading());
+      dispatchListChamp(actions.showLoading());
       await delay(500);
-      dispatch(actions.fetchAllChampFailed());
-      dispatch(actions.hideLoading());
+      dispatchListChamp(actions.fetchAllChampFailed());
+      dispatchListChamp(actions.hideLoading());
     }
   };
 
   const fetchChampions = async () => {
     try {
-      const res = await getChampRequest();
+      const res = await getAllChampRequest();
       if (res) {
-        dispatch(actions.showLoading());
+        dispatchListChamp(actions.showLoading());
         await delay(100)
-        dispatch(actions.fetchAllChampSuccess(res.data));
-        dispatch(actions.hideLoading());
+        dispatchListChamp(actions.fetchAllChampSuccess(res.data));
+        dispatchListChamp(actions.hideLoading());
       }
     } catch (error) {
-      dispatch(actions.showLoading());
-      dispatch(actions.fetchAllChampFailed());
-      dispatch(actions.hideLoading());
+      dispatchListChamp(actions.showLoading());
+      dispatchListChamp(actions.fetchAllChampFailed());
+      dispatchListChamp(actions.hideLoading());
     }
   };
 

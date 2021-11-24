@@ -9,8 +9,9 @@ export const reducer = (state = initState, action) => {
       const { data } = action.payLoad;
       const listChamp = [];
       for (let champ in data.data) {
-        const { name, tags, image } = data.data[champ];
+        const { id, name, tags, image } = data.data[champ];
         listChamp.push({
+          id: id,
           name: name,
           tags: tags,
           avatar: `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${modifyFileSuffix(
@@ -31,8 +32,9 @@ export const reducer = (state = initState, action) => {
       const { pattern } = action.payLoad;
       let listChamp = [];
       for (let champ in data.data) {
-        const { name, tags, image } = data.data[champ];
+        const { id, name, tags, image } = data.data[champ];
         listChamp.push({
+          id: id,
           name: name,
           tags: tags,
           avatar: `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${modifyFileSuffix(
@@ -46,18 +48,16 @@ export const reducer = (state = initState, action) => {
       return { ...state, listChamp };
     }
 
-    case actionTypes.SHOW_LOADING:{
-      return {...state, showLoading: true}
+    case actionTypes.SHOW_LOADING: {
+      return { ...state, showLoading: true };
     }
 
-    case actionTypes.HIDE_LOADING:{
-      return {...state, showLoading: false}
+    case actionTypes.HIDE_LOADING: {
+      return { ...state, showLoading: false };
     }
     default:
       return state;
   }
-
-
 };
 
 const modifyFileSuffix = (img) => {

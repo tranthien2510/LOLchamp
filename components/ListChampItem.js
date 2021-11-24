@@ -1,6 +1,5 @@
 import InfoIcon from "@material-ui/icons/Info";
 import React from "react";
-
 import Assassin from "../public/assets/icons/Assassin_icon.png";
 import Fighter from "../public/assets/icons/Fighter_icon.png";
 import Mage from "../public/assets/icons/Mage_icon.png";
@@ -9,41 +8,41 @@ import Marksman from "../public/assets/icons/Marksman_icon.png";
 import Tank from "../public/assets/icons/Tank_icon.png";
 import AOS from "aos";
 
+
 AOS.init();
 
-function ListChampItem({ champion }) {
-  
-  const tagIcon = (tag) => {
-    switch (tag) {
-      case "Assassin":
-        return Assassin;
+const tagIcon = (tag) => {
+  switch (tag) {
+    case "Assassin":
+      return Assassin;
 
-      case "Fighter":
-        return Fighter;
+    case "Fighter":
+      return Fighter;
 
-      case "Mage":
-        return Mage;
+    case "Mage":
+      return Mage;
 
-      case "Support":
-        return Support;
+    case "Support":
+      return Support;
 
-      case "Marksman":
-        return Marksman;
+    case "Marksman":
+      return Marksman;
 
-      case "Tank":
-        return Tank;
+    case "Tank":
+      return Tank;
 
-      default:
-        break;
-    }
-  };
+    default:
+      break;
+  }
+};
 
+function ListChampItem({ champion, handleFetchInfoChamp }) {
   return (
     <div className="col c-3 m-4 sm-6 ss-12 " data-aos="zoom-in" data-aos-duration="400">
       <div className="list-item-champion">
         <img src={champion.avatar} alt="" className="avatar" />
         <div className="image-champion-overlay"></div>
-        <span className="info-champion">
+        <span className="info-champion" onClick={()=>handleFetchInfoChamp(champion.id)}>
           <InfoIcon style={{ fontSize: 30 }} />
         </span>
         <div className="label-champion">
@@ -59,4 +58,4 @@ function ListChampItem({ champion }) {
   );
 }
 
-export default ListChampItem;
+export default React.memo(ListChampItem);

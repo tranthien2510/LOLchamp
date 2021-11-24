@@ -1,4 +1,3 @@
-import AxiosService from "../common/AxiosService";
 import * as actionTypes from "../constants";
 
 export const fetchAllChampSuccess = (data) => {
@@ -7,6 +6,14 @@ export const fetchAllChampSuccess = (data) => {
 
 export const fetchAllChampFailed = () => {
   return { type: actionTypes.FETCH_ALL_CHAMP_FAILED };
+};
+
+export const fetchChampSuccess = (data, id) => {
+  return { type: actionTypes.FETCH_CHAMP_SUCCESS, payLoad: { data, id } };
+};
+
+export const fetchChampFailed = () => {
+  return { type: actionTypes.FETCH_CHAMP_FAILED };
 };
 
 export const findChamp = (pattern, data) => {
@@ -19,4 +26,12 @@ export const showLoading = () => {
 
 export const hideLoading = () => {
   return { type: actionTypes.HIDE_LOADING };
+};
+
+export const showModal = () => {
+  return { type: actionTypes.SHOW_MODAL };
+};
+
+export const hideModal = () => {
+  return { type: actionTypes.HIDE_MODAL };
 };

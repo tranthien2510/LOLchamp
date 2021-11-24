@@ -1,11 +1,11 @@
-import React from "react";
-import NavbarList from "../components/NavbarList";
-import Button from "../components/Button";
+import MenuIcon from "@material-ui/icons/Menu";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Logo from "../public/assets/images/logo.png";
+import React from "react";
+import Button from "../components/Button";
+import NavbarList from "../components/NavbarList";
 import NavSideBar from "../components/NavSIdeBar";
-import MenuIcon from "@material-ui/icons/Menu";
+import Logo from "../public/assets/images/logo.png";
 
 AOS.init();
 

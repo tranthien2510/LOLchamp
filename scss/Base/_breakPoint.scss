@@ -7,6 +7,12 @@
     padding-right: 25px;
   }
   /*Tablets [601px -> 1200px]*/
+  .modal-box::before{
+    opacity: 0.8!important;
+    filter: none!important;
+  }
+
+
 }
 @media only screen and (max-width: 600px) {
   /*Big smartphones [426px -> 600px]*/
