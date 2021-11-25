@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "regenerator-runtime/runtime";
 import { getAllChampRequest, getChampRequest } from "../apis/champApis";
 import { useListChampContext } from "../common/Context";
@@ -11,16 +11,16 @@ function ListChamp() {
   const { stateListChamp, dispatchListChamp } = useListChampContext();
   const { stateInfoChamp, dispatchInfoChamp } = useInfoChampContext();
 
-  const handleFetchInfoChamp = React.useCallback(
-     async (id) => {
-      try {
-      /*   dispatchInfoChamp(actions.showModal()); */
-        const res = await getChampRequest(id);
-        dispatchInfoChamp(actions.fetchChampSuccess(res.data, id))
-      } catch (error) {}
-    },
-    []
-  );
+  const handleFetchInfoChamp = React.useCallback(async (id) => {
+    try {
+      const res = await getChampRequest(id);
+      dispatchInfoChamp(actions.fetchChampSuccess(res.data, id));
+      dispatchInfoChamp(actions.showModal());
+      dispatchInfoChamp(actions.showLoading());
+      await delay(1200)
+      dispatchInfoChamp(actions.hideLoading());
+    } catch (error) {}
+  }, []);
 
   const delay = (time = 1500) => {
     return new Promise((resolve) => {

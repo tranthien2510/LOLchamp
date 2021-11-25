@@ -26,6 +26,7 @@
   .sidebar-left{
     width: 50vw!important;
   }
+
 }
 
 @media only screen and (max-width: 425px) {
@@ -52,5 +53,8 @@
   }
   #hangtag1{
     left: calc(50% - 20%)!important;
+  }
+  .skill-description{
+    display:none!important;
   }
 }

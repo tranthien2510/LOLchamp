@@ -6,18 +6,19 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba($color: #000000, $alpha: 0.7);
+  background: rgba($color: #000000, $alpha: 0.8);
   z-index: 99;
   align-items: center;
-  transition: all 0.7s ease;
+  transition: all 1s ease;
   &.active {
     visibility: visible;
     display: flex;
     opacity: 1;
 
     & .modal-wrapper.container {
+      width: 100%;
       & .modal-box {
-        transform: translateY(0);
+        transform: translateY(0%);
         opacity: 1;
       }
     }
@@ -30,10 +31,11 @@
       padding: 10px;
       border-radius: 5px;
       overflow: hidden;
-      background: #000;
-      transition: all 0.7s ease;
-      transform: translateY(300px);
+      background-position: center; 
+      transition: all 1s ease;
+      transform: translateY(150%);
       opacity: 0;
+
       &::before {
         content: "";
         position: absolute;
@@ -41,15 +43,13 @@
         left: 0;
         bottom: 0;
         right: 0;
-        background: url("https://lolstatic-a.akamaihd.net/frontpage/apps/prod/rg-champion-aatrox/en_US/ae9700f463a66363e1d0a462e65bc8e9aa685582/assets/img/share/share-1200x630.jpg");
+        background: rgba($color: #000000, $alpha: 0.7);
         background-size: cover;
         background-position: center;
-        opacity: 0.5;
-        z-index: 0;
-        filter: blur(4px);
+        z-index: 1;
       }
       .box-left {
-        z-index: 1;
+        z-index: 2;
         box-shadow: 0px 0px 10px #111 inset;
         border-radius: 5px;
         overflow: hidden;
@@ -138,9 +138,49 @@
                   align-items: center;
                   gap: 20px;
                   flex: 1;
-                  img {
-                    width: 50px;
-                    height: 50px;
+                  .skill-description{
+                    flex: 1;
+                    height: 80px;
+                    color: #e6b56d;
+                  }
+                  .image-skill {
+                    width: 6rem;
+                    height: 6rem;
+                    position: relative;
+                    img {
+                      border-radius: 50%;
+                      width: 100%;
+                      height: 100%;
+                      animation: tictac 1s linear infinite both
+                        alternate-reverse;
+                    }
+                    span {
+                      position: absolute;
+                      top: -15px;
+                      left: 50%;
+                      transform: translateX(-50%);
+                      font-weight: bold;
+                      background: black;
+                      border-radius: 50%;
+                      padding: 2px;
+                    }
+                 
+                    &:hover::after {
+                      content: attr(data-name);
+                      font-size: 1rem;
+                      background: white;
+                      position: absolute;
+                      bottom: -30px;
+                      left: 50%;
+                      border-radius: 5px;
+                      color: black;
+                      font-weight: bold;
+                      background: #c49c60;
+                      padding: 10px;
+                      font-size: 1.4rem;
+                      text-align: center;
+                      transform: translate(-50%, 80%);
+                    }
                   }
                 }
               }
@@ -167,4 +207,14 @@
 .label {
   color: #e6b56d;
   width: 80px;
+}
+
+@keyframes tictac {
+  0% {
+    box-shadow: 0px 2px 6px#e6b56d;
+  }
+
+  100% {
+    box-shadow: 0px 7px 14px #e6b56d;
+  }
 }

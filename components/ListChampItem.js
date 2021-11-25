@@ -7,6 +7,7 @@ import Support from "../public/assets/icons/Support_icon.png";
 import Marksman from "../public/assets/icons/Marksman_icon.png";
 import Tank from "../public/assets/icons/Tank_icon.png";
 import AOS from "aos";
+import { classifyChamp } from "../constants";
 
 
 AOS.init();
@@ -49,7 +50,7 @@ function ListChampItem({ champion, handleFetchInfoChamp }) {
           <span className="name-champion">{champion.name}</span>
           <span className="classify">
             {champion.tags.map((tag) => (
-              <span className="tag-icon" tagTitle={tag}><img src={tagIcon(tag)}/></span>
+              <span className="tag-icon" tagTitle={tag}><img src={classifyChamp[tag]}/></span>
             ))}
           </span>
         </div>

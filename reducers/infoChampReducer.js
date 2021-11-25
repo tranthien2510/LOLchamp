@@ -18,7 +18,6 @@ export const reducer = (state = initState, action) => {
     case actionTypes.FETCH_CHAMP_SUCCESS: {
       const { data, id } = action.payLoad;
       const info = processData(data.data[id]);
-      console.log(info)
       return { ...state, info };
     }
     case actionTypes.SHOW_LOADING: {
@@ -38,7 +37,7 @@ export const reducer = (state = initState, action) => {
 
 const processData = (data) => {
   let info = {};
-  const { id, name, title, image, lore, tags, spells } = data;
+  const { id, name, title, image, lore, tags, spells, passive } = data;
   info.id = id;
   info.name = name;
   info.title = title;
@@ -47,13 +46,18 @@ const processData = (data) => {
     (info.square = image.full),
     (info.lore = lore);
   info.tags = tags;
+  info.passive = {
+    name: passive.name,
+    description: passive.description,
+    image: "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/passive/" + passive.image.full,
+  };
   info.skills = [];
   spells.forEach((spell) => {
     let skill = {
       id: spell.id,
       name: spell.name,
       description: spell.description,
-      image: spell.image.full,
+      image: "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/spell/" + spell.image.full,
     };
     info.skills.push(skill);
   });
