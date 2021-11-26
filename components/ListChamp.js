@@ -48,11 +48,13 @@ function ListChamp() {
   };
 
   useEffect(() => {
+    console.log(123)
     axios
       .get(
         "http://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion/Aatrox.json"
       )
-      .then((data)=>{console.log(data)});
+      .then((data)=>{console.log(data)}).catch(err =>{ console.log (err)});
+      console.log(456);
     handleFetchChampions();
   }, []);
 
