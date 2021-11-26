@@ -9,7 +9,7 @@ import Logo from "../public/assets/images/logo.png";
 
 AOS.init();
 
-export default function Header({handleScrollToSection}) {
+export default function Header({ handleScrollToSection }) {
   const [scrollBehavior, setScrollBehavior] = React.useState(false);
   const [toggleNavSideBar, setToggleNavSidedBar] = React.useState(false);
   const navbar = React.useRef(null);
@@ -41,7 +41,11 @@ export default function Header({handleScrollToSection}) {
         ref={navbar}
       >
         <div className="navbar-list-responsive container">
-          <MenuIcon id="menu-icon" onClick={handleToggleSideBar} />
+          <i
+            id="menu-icon"
+            onClick={handleToggleSideBar}
+            className="fas fa-bars"
+          ></i>
           <img
             src={Logo}
             alt=""

@@ -44,7 +44,7 @@ function ListChampItem({ champion, handleFetchInfoChamp }) {
         <img src={champion.avatar} alt="" className="avatar" />
         <div className="image-champion-overlay"></div>
         <span className="info-champion" onClick={()=>handleFetchInfoChamp(champion.id)}>
-          <InfoIcon style={{ fontSize: 30, color: '#7E633B' }} />
+          <i style={{ fontSize: 30, color: '#7E633B' }} className="fas fa-info-circle"></i>
         </span>
         <div className="label-champion">
           <span className="name-champion">{champion.name}</span>
