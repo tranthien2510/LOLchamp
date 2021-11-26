@@ -32,7 +32,7 @@ export const NAVBAR_LIST = [
     name: "facebook",
   },
   {
-    name: "tach",
+    name: "tech",
   },
 ];
 

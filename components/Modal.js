@@ -26,18 +26,6 @@ function Modal() {
     return xhtml;
   };
 
-  const showSkillDescription = (des) => {
-    setState((pre) => {
-      return { isOpenDes: true, description: des };
-    });
-  };
-
-  const hideSkillDescription = () => {
-    setState((pre) => {
-      return { isOpenDes: false, description: "" };
-    });
-  };
-
   const renderSkills = () => {
     let xhtml = [];
     let char = ["Q", "W", "E", "R"];

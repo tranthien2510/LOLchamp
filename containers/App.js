@@ -22,7 +22,18 @@ function App() {
       ...utilitiesState,
       toggleUtilities: !utilitiesState.toggleUtilities,
     });
+
   };
+
+  React.useEffect(()=>{
+    if(utilitiesState.darkMode){
+      document.documentElement.style.setProperty('--title-color', "#fff")
+      document.documentElement.style.setProperty('--primary-color', "#e6b56d")
+      return;
+    }
+    document.documentElement.style.setProperty('--title-color', "#fff")
+    document.documentElement.style.setProperty('--primary-color'," #fff")
+  },[utilitiesState.darkMode])
 
   const handleToggleDarkMode = () => {
     setUtilitiesState({
@@ -35,8 +46,10 @@ function App() {
     setUtilitiesState({
       ...utilitiesState,
       toggleUtilities: !utilitiesState.toggleUtilities,
+
     });
   }
+
   return (
     <div className="app">
       <div className="content">

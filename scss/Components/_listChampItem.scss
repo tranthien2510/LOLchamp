@@ -1,9 +1,9 @@
 .list-item-champion {
-  border: 1px solid $primary-color;
   overflow: hidden;
   position: relative;
   height: 50rem;
   box-shadow: 0 0 15px #111;
+  border: 1px solid #7E633B;
   .avatar {
     width: 100%;
     height: 100%;
@@ -56,7 +56,7 @@
     .name-champion {
       font-size: 2rem;
       font-weight: 600;
-      color: $text-primary-light-color;
+      color: var(--immutable-color);
       margin-bottom: 10px;
     }
     .classify {

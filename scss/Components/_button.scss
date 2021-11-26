@@ -5,9 +5,9 @@
   text-transform: uppercase;
   background: linear-gradient(180deg, #ecc572 0, #815500);
   font-weight: bold;
-  border: 2px solid $text-primary-light-color;
   cursor: pointer;
-  color: $primary-color;
+  color: var(--primary-color);
+  border: 1px solid #ecc572;
   box-shadow: 1px 1px 20px black;
   font-size: 1.6rem;
   transition: all 0.2s ease;
