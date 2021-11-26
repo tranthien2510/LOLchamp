@@ -39,6 +39,7 @@ function ListChamp() {
         dispatchListChamp(actions.hideLoading());
       }
     } catch (error) {
+      console.log(error);
       dispatchListChamp(actions.showLoading());
       dispatchListChamp(actions.fetchAllChampFailed());
       dispatchListChamp(actions.hideLoading());
