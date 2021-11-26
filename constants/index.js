@@ -1,7 +1,7 @@
 export const URL_GET_ALL_CHAMP =
-  "http://ddragon.leagueoflegends.com/cdn/11.14.1/data/en_US/champion.json";
+  "https://ddragon.leagueoflegends.com/cdn/11.14.1/data/en_US/champion.json";
 export const URL_GET_CHAMP =
-  "http://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion/";
+  "https://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion/";
 
 /* CONSTANT list champion */
 export const FETCH_ALL_CHAMP_SUCCESS = "GET_ALL_CHAMP_SUCCESS";

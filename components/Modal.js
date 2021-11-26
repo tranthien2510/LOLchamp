@@ -53,7 +53,7 @@ function Modal() {
         <div className="box-left col c-3 m-0">
           <img
             src={
-              "http://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
+              "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/" +
               info.avatar
             }
             alt=""
@@ -74,7 +74,7 @@ function Modal() {
                   <div className="label">avatar:</div>
                   <img
                     src={
-                      "http://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/" +
+                      "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/" +
                       info.square
                     }
                     alt=""
