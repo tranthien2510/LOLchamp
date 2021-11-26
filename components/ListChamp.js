@@ -6,6 +6,7 @@ import ListChampItem from "./ListChampItem";
 import LoadingScreen from "./LoadingScreen";
 import * as actions from "../actions";
 import { useInfoChampContext } from "../common/Context";
+import axios from "axios";
 
 function ListChamp() {
   const { stateListChamp, dispatchListChamp } = useListChampContext();
@@ -17,7 +18,7 @@ function ListChamp() {
       dispatchInfoChamp(actions.fetchChampSuccess(res.data, id));
       dispatchInfoChamp(actions.showModal());
       dispatchInfoChamp(actions.showLoading());
-      await delay(1200)
+      await delay(1200);
       dispatchInfoChamp(actions.hideLoading());
     } catch (error) {}
   }, []);
@@ -47,6 +48,11 @@ function ListChamp() {
   };
 
   useEffect(() => {
+    axios
+      .get(
+        "http://ddragon.leagueoflegends.com/cdn/11.23.1/data/en_US/champion/Aatrox.json"
+      )
+      .then((data)=>{console.log(data)});
     handleFetchChampions();
   }, []);
 
