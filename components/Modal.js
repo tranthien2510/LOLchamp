@@ -119,7 +119,7 @@ function Modal() {
         <div
           className={`modal-box row`}
           style={{
-            backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${info.splash})`,
+            backgroundImage: `url(https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${info.splash})`,
           }}
         >
           {showLoading ? (
